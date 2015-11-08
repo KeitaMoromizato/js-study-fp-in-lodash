@@ -1,0 +1,29 @@
+{
+  "name": "js-study-fp-in-lodash",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/babel-cli/bin/babel.js index.js -o bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KeitaMoromizato/js-study-fp-in-lodash.git"
+  },
+  "author": "Keita Moromizato",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KeitaMoromizato/js-study-fp-in-lodash/issues"
+  },
+  "homepage": "https://github.com/KeitaMoromizato/js-study-fp-in-lodash#readme",
+  "devDependencies": {
+    "babel-cli": "^6.1.2",
+    "babel-preset-es2015": "^6.1.2",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-shell": "^1.1.2"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}
