@@ -19,6 +19,7 @@ https://lodash.com/docs
 * 関数の一般化
 * lodashとは
 * 配列向け関数群
+* Object向けの関数群
 
 ## 副作用のある関数
 「与えられた引数による演算結果を返す」以外の処理をする関数を「副作用のある関数」と呼ぶ。副作用のない関数は「純粋関数」と呼ぶ。
@@ -295,4 +296,50 @@ const user = _.find(users, (user) => {
   return user.name === 'hoge';
 });
 // => user = {id: 1, name: 'hoge'}
+```
+
+## Object向けの関数群
+以下に示す関数群は全て **非破壊的** な関数です。lodashは基本的に非破壊的なものが多いですが、まれに引数で渡したものを書きかえてしまうものがあるので注意して下さい。出来る限り、非破壊的な関数を使う方向に寄せたほうが良いと思います。
+
+### assign
+オブジェクトに新しいKeyを追加します。keyが重複している場合は後で指定したほうで上書きされます。
+
+```
+const base = {
+  id: 1,
+  name: 'hoge'
+};
+
+const ext = _.assign(base, {
+  role: 'admin'
+});
+// => {id: 1, name: 'hoge', role: 'admin'}
+```
+
+### pick
+pickオブジェクトから指定したkeyのみ取り出します。これは関数の引数にObjectを渡した時、validなものだけ抜き出す用途で使ったりします(O/R MapperにそのままObjectを渡すときなど)。
+
+```
+const base = {
+  id: 1,
+  name: 'hoge',
+  role: 'admin'
+};
+
+const ext = _.pick(base, ['name', 'role']);
+// => {name: 'hoge', role: 'admin'}
+```
+
+### omit
+omitは逆に、指定したkeyを除いたオブジェクトを返します。
+
+```
+const base = {
+  id: 1,
+  name: 'hoge',
+  role: 'admin'
+};
+
+const ext = _.omit(base, ['name', 'role']);
+// => {id: 1}
 ```
