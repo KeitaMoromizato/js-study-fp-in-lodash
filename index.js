@@ -1,5 +1,5 @@
 import _ from 'lodash';
 
-const test = [2, 8, 10];
-
-console.log(_.map(test,  (num) => { return num * 2; }));
+_.forEach([1, 2], (n) => {
+  console.log(n);
+});

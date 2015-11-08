@@ -20,6 +20,7 @@ https://lodash.com/docs
 * lodashとは
 * 配列向け関数群
 * Object向けの関数群
+* ES2015とchain
 
 ## 副作用のある関数
 「与えられた引数による演算結果を返す」以外の処理をする関数を「副作用のある関数」と呼ぶ。副作用のない関数は「純粋関数」と呼ぶ。
@@ -342,4 +343,29 @@ const base = {
 
 const ext = _.omit(base, ['name', 'role']);
 // => {id: 1}
+```
+
+## ES2015とchain
+この章はおまけです。chainを使わなくても問題は無いですが、使い方が分かるとスマートに書けることが多いです。
+`_()`を使うと、メソッドチェーンで複数の関数を使うことが出来ます。`_()`に渡したオブジェクトが次のメソッドに渡され(よって第１引数にターゲットを指定する必要が無い)、`value()`で最終結果を返します。
+これがES2015のArrowFunctionの短縮記法と相性が良く、ほぼ他の関数型言語と同じような感覚で書けるようになっています。
+
+```
+const users = [
+  {
+    name: "hoge",
+    age: 10
+  },
+  {
+    name: "huga",
+    age: 30
+  },
+  {
+    name: 'piyo',
+    age: 21
+  }
+];
+
+const result = _(users).filter(user => user.age >= 20).map(user => user.name).value();
+// => result = ['hoge', 'piyo']
 ```
