@@ -6,6 +6,7 @@
 
 ```
 $ git clone https://github.com/KeitaMoromizato/js-study-fp-in-lodash
+$ cd js-study-fp-in-lodash
 $ npm install
 $ grunt watch
 # => index.jsを変更すると自動的に実行されます。
