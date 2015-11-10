@@ -49,7 +49,7 @@ function dateFormatter(target) {
 これを副作用のない形に書き直すとこうなる。引数に渡した2つの値でのみ戻り値は決定され、いつどのタイミングで呼び出しても結果は変わらない。
 
 ```
-// 副作用のある関数
+// 副作用のない関数
 function dateFormatter(base, target) {
   const diffMin = (base - target) / 1000;
 
